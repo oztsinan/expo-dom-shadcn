@@ -1,7 +1,11 @@
-import { Slot, Stack, Tabs } from "expo-router";
+import { Slot, Tabs } from "expo-router";
 import { BlurView } from "expo-blur";
-import { StyleSheet } from "react-native";
+import { Appearance, Platform, StyleSheet } from "react-native";
 import { HapticTab } from "@/components/haptic-tab";
+
+if (Platform.OS !== "web") {
+  Appearance.setColorScheme("light");
+}
 
 export default function RootLayout() {
   if (process.env.EXPO_OS === "web") return <Slot />;
@@ -19,7 +23,7 @@ export default function RootLayout() {
         },
         tabBarBackground: () => (
           <BlurView
-            tint="prominent"
+            tint="light"
             intensity={100}
             style={StyleSheet.absoluteFill}
           />

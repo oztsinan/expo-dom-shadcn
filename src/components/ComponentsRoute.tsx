@@ -27,12 +27,16 @@ export default function ComponentsRoute({
       <Button variant={"destructive"}>Button Destructive</Button>
       <Button variant={"outline"}>Outline Destructive</Button>
 
-      <Link asChild href={"/table"}>
-        <Button variant={"destructive"}>Navigate Table</Button>
+      <Link href={"/table"}>
+        <Button className="w-full" variant={"destructive"}>
+          Navigate Table
+        </Button>
       </Link>
 
-      <Link asChild href={"/settings"}>
-        <Button variant={"default"}>Settings</Button>
+      <Link href={"/settings"}>
+        <Button variant={"default"} className="w-full">
+          Settings
+        </Button>
       </Link>
     </ShadLayout>
   );

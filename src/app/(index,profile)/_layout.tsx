@@ -12,6 +12,7 @@ export default function RootLayout({ segment }: { segment: string }) {
   }
 
   const name = getRouteName(segment);
+  console.log("segment name : ", name);
 
   return (
     <Stack
@@ -20,18 +21,15 @@ export default function RootLayout({ segment }: { segment: string }) {
         headerBlurEffect: "prominent",
         headerShadowVisible: true,
         headerLargeTitleShadowVisible: false,
-        // headerLargeStyle: {
-        //   backgroundColor: PlatformColor("systemGroupedBackgroundColor"), // Color of your background
-        // },
         headerStyle: {
           // Hack to ensure the collapsed small header shows the shadow / border.
           backgroundColor: "rgba(255,255,255,0.01)",
         },
         headerLargeStyle: {
-          backgroundColor: PlatformColor("systemGroupedBackgroundColor") as any,
+          backgroundColor: PlatformColor("systemBackgroundColor") as any,
         },
         contentStyle: {
-          backgroundColor: PlatformColor("systemGroupedBackgroundColor"),
+          backgroundColor: PlatformColor("systemBackgroundColor"),
         },
         headerTitleStyle: {
           color: PlatformColor("label") as any,
@@ -47,8 +45,6 @@ export default function RootLayout({ segment }: { segment: string }) {
           // headerRight() {
           //   return <ProfileButton segment={segment} />;
           // },
-
-          //
           ...(name !== "index"
             ? {
                 headerLargeTitle: undefined,
@@ -60,8 +56,7 @@ export default function RootLayout({ segment }: { segment: string }) {
       <Stack.Screen
         name="table"
         options={{
-          title: "Settings",
-          presentation: "modal",
+          title: "Table",
           headerTransparent: true,
           headerBlurEffect: "prominent",
           headerShadowVisible: true,
@@ -82,9 +77,9 @@ export default function RootLayout({ segment }: { segment: string }) {
 
 export const unstable_settings = {
   initialRouteName: "index",
-  profile: {
-    initialRouteName: "profile",
-  },
+  // profile: {
+  //   initialRouteName: "profile",
+  // },
 };
 
 const titles = {
