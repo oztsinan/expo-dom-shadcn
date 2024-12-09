@@ -1,5 +1,4 @@
 "use dom";
-import "../../global.css";
 
 import * as React from "react";
 import {
@@ -36,6 +35,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import "../../global.css";
+
 const data: Payment[] = [
   {
     id: "m5gr84i9",
@@ -200,7 +201,7 @@ export default function DataTableDemo({
   });
 
   return (
-    <div className="w-full p-5">
+    <div>
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter emails..."

@@ -1,10 +1,11 @@
 "use dom";
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -15,17 +16,18 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
+import ShadLayout from "@/components/shad-layout";
+import { useGlobalButtonHaptics } from "@/hooks/useGlobalButtonHaptics";
 import { Link } from "expo-router";
-import "../../global.css";
 
-const DOMTest = (props: { dom?: import("expo/dom").DOMProps }) => {
+export default function ComponentsRoute({
+  navigate,
+}: {
+  navigate: typeof import("expo-router").router["navigate"];
+  dom?: import("expo/dom").DOMProps;
+}) {
   return (
-    <div className="p-5 gap-2 flex flex-col flex-1">
+    <ShadLayout navigate={navigate} select>
       <Popover>
         <PopoverTrigger asChild>
           <Button>Popover Open</Button>
@@ -61,9 +63,6 @@ const DOMTest = (props: { dom?: import("expo/dom").DOMProps }) => {
       <Link asChild href={"/settings"}>
         <Button variant={"default"}>Settings</Button>
       </Link>
-    </div>
-    
+    </ShadLayout>
   );
-};
-
-export default DOMTest;
+}
