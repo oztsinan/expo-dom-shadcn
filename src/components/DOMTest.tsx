@@ -21,15 +21,9 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { DataTableDemo } from "./DataTable";
+import { Link } from "expo-router";
 
 const DOMTest = () => {
-  return (
-    <div className="p-5">
-      <DataTableDemo />
-    </div>
-  );
-
   return (
     <div className="p-5 gap-2 flex flex-col flex-1">
       <Popover>
@@ -60,11 +54,9 @@ const DOMTest = () => {
         </DrawerContent>
       </Drawer>
 
-      <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel>One</ResizablePanel>
-        <ResizableHandle />
-        <ResizablePanel>Two</ResizablePanel>
-      </ResizablePanelGroup>
+      <Link asChild href={"/table"}>
+        <Button variant={"destructive"}>Navigate Table</Button>
+      </Link>
     </div>
   );
 };
