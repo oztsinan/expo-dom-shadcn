@@ -1,40 +1,63 @@
 "use dom";
 import "../../global.css";
-import { IS_DOM } from "expo/dom";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Button } from "./ui/button";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 
 const DOMTest = () => {
   return (
-    <div>
-      <Button>TEST</Button>
+    <div className="p-5 gap-2 flex flex-col flex-1">
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button>Popover Open</Button>
+        </PopoverTrigger>
+        <PopoverContent>Place content for the popover here.</PopoverContent>
+      </Popover>
 
-      <AlertDialog>
-        <AlertDialogTrigger>Open</AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <Button variant={"destructive"}>Button Destructive</Button>
+      <Button variant={"outline"}>Outline Destructive</Button>
+
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button>Drawer Open</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+            <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <Button>Submit</Button>
+            <DrawerClose>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+
+      <ResizablePanelGroup direction="horizontal">
+        <ResizablePanel>One</ResizablePanel>
+        <ResizableHandle />
+        <ResizablePanel>Two</ResizablePanel>
+      </ResizablePanelGroup>
     </div>
   );
 };
