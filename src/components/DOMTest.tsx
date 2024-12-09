@@ -21,8 +21,15 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { DataTableDemo } from "./DataTable";
 
 const DOMTest = () => {
+  return (
+    <div className="p-5">
+      <DataTableDemo />
+    </div>
+  );
+
   return (
     <div className="p-5 gap-2 flex flex-col flex-1">
       <Popover>
