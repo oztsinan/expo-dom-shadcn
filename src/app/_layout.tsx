@@ -15,6 +15,7 @@ export default function RootLayout() {
         tabBarActiveTintColor: "rgb(15, 23, 42)",
         tabBarStyle: {
           position: "absolute",
+          backgroundColor: "rgba(255,255,255,0.01)",
         },
         tabBarBackground: () => (
           <BlurView
@@ -39,17 +40,5 @@ export default function RootLayout() {
         }}
       />
     </Tabs>
-  );
-
-  return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen
-        name="table"
-        options={{
-          presentation: "modal",
-        }}
-      />
-    </Stack>
   );
 }
